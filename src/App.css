@@ -1,38 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background: url(./images/download.jpeg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 .App {
-  text-align: center;
+  width: 60%;
+  height: 80vh;
+  margin: 3rem auto;
+  box-shadow: 2px 2px 25px 1px grey;
+  background: rgba(255, 255, 255, transparent);
+  background-blend-mode: overlay;
+  display: grid;
+  grid-template-columns: 40% 60%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
   display: flex;
-  flex-direction: column;
+  height: 4rem;
+  border-bottom: 2px solid chocolate;
+  background-color: rgba(0, 0, 0, 0.5);
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 0 1rem;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.socio-icons {
+  margin-left: 1rem;
+  display: flex;
+}
+.socio-icons div {
+  margin-right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: white;
+}
+.socio-icons img {
+  width: 1rem;
+  height: 1rem;
+}
+img {
+  width: 100%;
+}
+.intro {
+  width: 100%;
+  background-color: #02173b;
+  background-image: url(./images/lightonwall.jpeg);
+  background-blend-mode: normal;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-right: 4rem;
+}
+.intro-cont {
+  width: 100%;
+  height: 80%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.intro-cont p {
+  margin: 0;
+}
+.intro-cont h3 {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+.question-cont {
+  background-color: rgb(255, 248, 220);
+  width: 100%;
+  padding: 6rem 3rem;
+  text-align: center;
+}
+.question-cont h3 {
+  color: chocolate;
+}
+/* .question-cont span {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid chocolate;
+} */
+.answers span {
+  border: 1px solid chocolate;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  /* color: #4f3715; */
+  font-weight: 500;
+  transition: 400ms ease-in-out;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-btn {
+  padding: 0.7rem 2rem;
+  margin: 0 2rem;
+  border: none;
+  background-color: brown;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+.nav-btn:hover {
+  background-color: chocolate;
+  color: white;
+  transition: all 300ms ease-in-out;
+  padding: 0.7rem 2.5rem;
+}
+.questionNums {
+  color: black;
+}
+.submit-color {
+  padding: 0.7rem 2rem;
+  margin: 0 2rem;
+  border: none;
+  background-color: #4f3715;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+.selectedOption {
+  background-color: crimson;
+  color: white;
+}
+.wrongAns {
+  background-color: tomato;
+  color: white;
+}
+.finalResult img {
+  width: 10rem;
+  height: 10rem;
+}
+.retake-btn {
+  padding: 1rem 3rem;
+  background-color: chocolate;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-size: medium;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+.finalResult button:hover {
+  background-color: tomato;
+}
+.newQuiz {
+  padding: 1rem 3rem;
+  background-color: crimson;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
