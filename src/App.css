@@ -92,11 +92,11 @@ img {
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid chocolate;
 } */
-.answers span {
+.answers {
   border: 1px solid chocolate;
-  text-align: left;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   margin: 1rem;
   padding: 1rem;
   border-radius: 5px;
@@ -136,7 +136,7 @@ img {
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 .selectedOption {
-  background-color: crimson;
+  background-color: black;
   color: white;
 }
 .wrongAns {
@@ -170,3 +170,19 @@ img {
   font-weight: bold;
   margin-bottom: 1rem;
 }
+.correctAns {
+  background-color: red;
+  color: white;
+}
+.tick-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+.answers img {
+  display: flex;
+}
+/* .answers {
+  display: flex;
+  align-items: center;
+} */

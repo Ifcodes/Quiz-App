@@ -12,7 +12,7 @@ function App() {
   const [result, setResult] = useState(0);
   const [selectedOption, setSelectedOption] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [answer, setAnswer] = useState("");
+  const [answers, setAnswer] = useState("");
 
   useEffect(() => {
     axios
@@ -61,7 +61,7 @@ function App() {
           selectedOption={selectedOption}
           result={result}
           setResult={setResult}
-          answer={answer}
+          answers={answers}
           setAnswer={setAnswer}
         />
         {questionIndex === 10 && (

@@ -1,4 +1,6 @@
 import React from "react";
+import checkIcon from "../images/icons8-checkmark.gif";
+import wrongIcon from "../images/icons8-cross-mark-48.png";
 
 const Questions = ({
   questions,
@@ -6,7 +8,7 @@ const Questions = ({
   setSelectedOption,
   selectedOption,
   setQuestionIndex,
-  answer,
+  answers,
   setAnswer,
   result,
   setResult,
@@ -31,14 +33,16 @@ const Questions = ({
 
   const handleAnswerClick = (ans, selection) => {
     if (correctAns.join() === ans) {
-      setAnswer(ans);
+      setAnswer(selection);
+    } else {
+      setAnswer("");
     }
     setSelectedOption(selection);
     return ans;
   };
 
   const handleResult = () => {
-    return answer && setResult(result + 1);
+    return answers && setResult(result + 1);
   };
   return (
     <>
@@ -53,14 +57,25 @@ const Questions = ({
       </h3>
       {allAnswers.sort().map((answer, index) => {
         return (
-          <div className="answers" key={`newKey${index}`}>
-            <span
-              key={index}
-              onClick={() => handleAnswerClick(answer, index)}
-              className={selectedOption === index ? "selectedOption" : " "}
-            >
-              {answer}
-            </span>
+          <div
+            key={`newKey${index}`}
+            onClick={() => handleAnswerClick(answer, index)}
+            className={`answers ${
+              answers === index
+                ? "correctAns"
+                : selectedOption === index
+                ? "selectedOption"
+                : " "
+            }`}
+          >
+            <span>{answer}</span>
+            {answers === index ? (
+              <img src={checkIcon} alt="checkIcon" className="tick-icon" />
+            ) : selectedOption === index ? (
+              <img src={wrongIcon} alt="wrongIcon" className="tick-icon" />
+            ) : (
+              " "
+            )}
           </div>
         );
       })}
