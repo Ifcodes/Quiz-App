@@ -19,8 +19,6 @@ const Questions = ({
     )
     .filter((answer) => answer !== false);
 
-  console.log(correctAns.join());
-
   const incorrectAns = questions
     .map(
       (question, index) => index === questionIndex && question.incorrect_answers
