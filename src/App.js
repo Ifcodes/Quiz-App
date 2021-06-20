@@ -13,6 +13,7 @@ function App() {
   const [selectedOption, setSelectedOption] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswer] = useState("");
+  const [correctOption, setCorrectOption] = useState("");
 
   useEffect(() => {
     axios
@@ -63,6 +64,8 @@ function App() {
           setResult={setResult}
           answers={answers}
           setAnswer={setAnswer}
+          correctOption={correctOption}
+          setCorrectOption={setCorrectOption}
         />
         {questionIndex === 10 && (
           <FinalResult

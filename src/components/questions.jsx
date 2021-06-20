@@ -12,13 +12,15 @@ const Questions = ({
   setAnswer,
   result,
   setResult,
+  correctOption,
+  setCorrectOption,
 }) => {
   const correctAns = questions
     .map(
       (question, index) => index === questionIndex && question.correct_answer
     )
     .filter((answer) => answer !== false);
-
+  console.log(correctAns.join());
   const incorrectAns = questions
     .map(
       (question, index) => index === questionIndex && question.incorrect_answers
@@ -31,8 +33,10 @@ const Questions = ({
 
   const handleAnswerClick = (ans, selection) => {
     if (correctAns.join() === ans) {
+      setCorrectOption(ans);
       setAnswer(selection);
     } else {
+      setCorrectOption("");
       setAnswer("");
     }
     setSelectedOption(selection);
@@ -40,7 +44,7 @@ const Questions = ({
   };
 
   const handleResult = () => {
-    return answers && setResult(result + 1);
+    return correctOption && setResult(result + 1);
   };
   return (
     <>
@@ -88,6 +92,7 @@ const Questions = ({
           <button
             onClick={() => {
               handleResult();
+              console.log(result);
               setQuestionIndex(questionIndex + 1);
               setSelectedOption(false);
               setAnswer("");
