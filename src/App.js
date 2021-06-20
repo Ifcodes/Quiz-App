@@ -19,7 +19,7 @@ function App() {
     axios
       .get("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy")
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setQuestions(response.data.results);
         setResult(0);
       });
@@ -49,7 +49,7 @@ function App() {
           </h3>
           <span>
             This quiz helps you with some basics knowledge required for any
-            aspiring software developer. Happy Hacking.
+            aspiring software developer.
           </span>
         </div>
       </div>

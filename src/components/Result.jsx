@@ -14,7 +14,7 @@ const FinalResult = ({
     return axios
       .get("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy")
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setQuestions(response.data.results);
         setResult(0);
         setQuestionIndex(0);
