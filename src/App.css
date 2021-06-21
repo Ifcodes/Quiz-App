@@ -139,6 +139,14 @@ img {
   background-color: black;
   color: white;
 }
+.selectedOption[disabled] {
+  opacity: 0.8;
+  pointer-events: none;
+}
+.answers[disabled] {
+  opacity: 0.8;
+  pointer-events: none;
+}
 .wrongAns {
   background-color: tomato;
   color: white;
@@ -178,6 +186,8 @@ img {
   width: 2rem;
   height: 2rem;
   margin-right: 0.5rem;
+  border-radius: 100%;
+  background-color: white;
 }
 .answers img {
   display: flex;

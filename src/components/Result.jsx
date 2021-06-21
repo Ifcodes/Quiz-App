@@ -24,7 +24,7 @@ const FinalResult = ({
   return (
     <>
       <div className="finalResult">
-        {percentage > 50 ? (
+        {percentage >= 50 ? (
           <img src={trophy} alt="trophy" />
         ) : (
           <img src={saddy} alt="sad" />

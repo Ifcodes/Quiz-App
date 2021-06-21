@@ -42,6 +42,7 @@ function App() {
             </div>
           </div>
         </header>
+
         <div className="intro-cont">
           <h3>
             A broad spectrum of quizes to test your how much you know about

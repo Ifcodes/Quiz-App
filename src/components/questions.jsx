@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import checkIcon from "../images/icons8-checkmark.gif";
 import wrongIcon from "../images/icons8-cross-mark-48.png";
 
@@ -15,12 +15,14 @@ const Questions = ({
   correctOption,
   setCorrectOption,
 }) => {
+  const [selected, setSelected] = useState(false);
+
   const correctAns = questions
     .map(
       (question, index) => index === questionIndex && question.correct_answer
     )
     .filter((answer) => answer !== false);
-  console.log(correctAns.join());
+
   const incorrectAns = questions
     .map(
       (question, index) => index === questionIndex && question.incorrect_answers
@@ -32,14 +34,18 @@ const Questions = ({
   const allAnswers = concatAns.flat();
 
   const handleAnswerClick = (ans, selection) => {
+    setSelected(true);
+
     if (correctAns.join() === ans) {
       setCorrectOption(ans);
       setAnswer(selection);
     } else {
-      setCorrectOption("");
       setAnswer("");
+      setCorrectOption("");
     }
+
     setSelectedOption(selection);
+
     return ans;
   };
 
@@ -60,8 +66,12 @@ const Questions = ({
       {allAnswers.sort().map((answer, index) => {
         return (
           <div
+            disabled={selected ? true : false}
             key={`newKey${index}`}
-            onClick={() => handleAnswerClick(answer, index)}
+            onClick={() => {
+              handleAnswerClick(answer, index);
+              // handleSingleClick();
+            }}
             className={`answers ${
               answers === index
                 ? "correctAns"
@@ -84,6 +94,7 @@ const Questions = ({
       {questionIndex < 10 && (
         <div className="btn">
           <button
+            disabled={questionIndex === 0}
             onClick={() => setQuestionIndex(questionIndex - 1)}
             className="nav-btn back-btn"
           >
@@ -92,10 +103,10 @@ const Questions = ({
           <button
             onClick={() => {
               handleResult();
-              console.log(result);
               setQuestionIndex(questionIndex + 1);
               setSelectedOption(false);
               setAnswer("");
+              setSelected(false);
             }}
             disabled={questionIndex === 10}
             className={
