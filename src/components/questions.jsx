@@ -16,6 +16,7 @@ const Questions = ({
   setCorrectOption,
 }) => {
   const [selected, setSelected] = useState(false);
+  const [notification, setNotification] = useState("");
 
   const correctAns = questions
     .map(
@@ -39,11 +40,15 @@ const Questions = ({
     if (correctAns.join() === ans) {
       setCorrectOption(ans);
       setAnswer(selection);
+      setNotification("Correct!");
     } else {
       setAnswer("");
       setCorrectOption("");
+      setNotification("Wrong!");
     }
-
+    setTimeout(() => {
+      setNotification("");
+    }, 2000);
     setSelectedOption(selection);
 
     return ans;
@@ -54,10 +59,19 @@ const Questions = ({
   };
   return (
     <>
+      {notification && (
+        <span
+          className={`notification ${
+            notification === "Correct!" ? "cNote" : "wNote"
+          }`}
+        >
+          {notification}
+        </span>
+      )}
+
       {questionIndex < 10 && (
         <h3 className="questionNums">Questions {questionIndex + 1} of 10</h3>
       )}
-
       <h3>
         {questions.map(
           (question, index) => index === questionIndex && question.question
@@ -94,13 +108,6 @@ const Questions = ({
       {questionIndex < 10 && (
         <div className="btn">
           <button
-            disabled={questionIndex === 0}
-            onClick={() => setQuestionIndex(questionIndex - 1)}
-            className="nav-btn back-btn"
-          >
-            Back
-          </button>
-          <button
             onClick={() => {
               handleResult();
               setQuestionIndex(questionIndex + 1);
@@ -108,7 +115,7 @@ const Questions = ({
               setAnswer("");
               setSelected(false);
             }}
-            disabled={questionIndex === 10}
+            disabled={questionIndex === 10 || !selected ? true : false}
             className={
               questionIndex === 9 ? "submit-color" : "nav-btn next-btn"
             }

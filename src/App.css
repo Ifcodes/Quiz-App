@@ -10,7 +10,7 @@ html {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .App {
-  width: 60%;
+  width: 60vw;
   height: 80vh;
   margin: 3rem auto;
   box-shadow: 2px 2px 25px 1px grey;
@@ -122,6 +122,9 @@ img {
   transition: all 300ms ease-in-out;
   padding: 0.7rem 2.5rem;
 }
+.next-btn[disabled] {
+  display: none;
+}
 .questionNums {
   color: black;
 }
@@ -135,9 +138,10 @@ img {
   cursor: pointer;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
-.selectedOption {
-  background-color: black;
+.correctAns {
+  background-color: rgb(1, 177, 1);
   color: white;
+  border: none;
 }
 .selectedOption[disabled] {
   opacity: 0.8;
@@ -147,10 +151,10 @@ img {
   opacity: 0.8;
   pointer-events: none;
 }
-.wrongAns {
+/* .wrongAns {
   background-color: tomato;
   color: white;
-}
+} */
 .finalResult img {
   width: 10rem;
   height: 10rem;
@@ -178,9 +182,10 @@ img {
   font-weight: bold;
   margin-bottom: 1rem;
 }
-.correctAns {
+.selectedOption {
   background-color: red;
   color: white;
+  border: none;
 }
 .tick-icon {
   width: 2rem;
@@ -192,7 +197,17 @@ img {
 .answers img {
   display: flex;
 }
-/* .answers {
-  display: flex;
-  align-items: center;
-} */
+.cNote {
+  text-align: center;
+  border: 1px solid rgb(1, 177, 1);
+  padding: 0.7rem 1rem;
+  color: green;
+  border-radius: 10px;
+}
+.wNote {
+  text-align: center;
+  border: 1px solid red;
+  padding: 0.7rem 1rem;
+  color: red;
+  border-radius: 10px;
+}
